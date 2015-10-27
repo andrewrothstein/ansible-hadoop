@@ -1,0 +1,13 @@
+---
+- name: download apache hadoop...
+  environment: proxy_env
+  get_url: url='{{ hadoop_url }}' dest='/tmp/{{ hadoop_archive }}'
+
+- name: unarchive apache hadoop...
+  unarchive: copy=no src='/tmp/{{ hadoop_archive }}' dest='/opt'
+
+- name: link hadoop...
+  file: src='/opt/{{ hadoop_name }}' dest='/opt/hadoop' state=link
+
+- name: include hadoop in the default path...
+  copy: src='etc/profile.d/hadoop.sh' dest='/etc/profile.d/hadoop.sh' mode=644
