@@ -1,5 +1,4 @@
 ---
-hadoop_version : '2.7.1'
 hadoop_name : 'hadoop-{{ hadoop_version }}'
 hadoop_archive : '{{ hadoop_name }}.tar.gz'
-hadoop_url : 'http://mirror.cc.columbia.edu/pub/software/apache/hadoop/common/{{ hadoop_name }}/{{ hadoop_archive }}'
+hadoop_url : '{{hadoop_mirror}}/{{ hadoop_name }}/{{ hadoop_archive }}'
