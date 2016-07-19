@@ -5,7 +5,7 @@ galaxy_info:
   company: BlackRock
   license:
     - MIT
-  min_ansible_version: 1.2
+  min_ansible_version: 2.0
   platforms:
     - name: EL
       versions:
@@ -15,10 +15,14 @@ galaxy_info:
         - 21
     - name: Ubuntu
       versions:
-        - trusty
+        - xenial
 
-  categories:
+  galaxy_tags:
     - development
 
-dependencies: []
+dependencies:
+  - role: andrewrothstein.unarchive-deps
+    version: v1.0.3
+  - role: andrewrothstein.java
+    version: v1.0.1
   
