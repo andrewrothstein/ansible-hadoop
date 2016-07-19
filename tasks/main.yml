@@ -13,21 +13,23 @@
   unarchive: >
     copy=no
     src=/tmp/{{hadoop_archive}}
-    dest=/opt
-    creates=/opt/{{hadoop_name}}
+    dest={{hadoop_home_root}}
+    creates={{hadoop_home_root}}/{{hadoop_name}}
 
 - name: link hadoop...
   become: yes
   become_user: root
   file: >
     state=link
-    src=/opt/{{hadoop_name}}
-    dest=/opt/hadoop
+    src={{hadoop_home_root}}/{{hadoop_name}}
+    dest={{hadoop_home}}
 
 - name: include hadoop in the default path...
   become: yes
   become_user: root
-  copy: >
-    src=etc/profile.d/hadoop.sh
-    dest=/etc/profile.d/hadoop.sh
+  with_items:
+    - etc/profile.d/hadoop.sh
+  template: >
+    src={{item}}.j2
+    dest=/{{item}}
     mode=0644
