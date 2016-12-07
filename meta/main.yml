@@ -18,7 +18,9 @@ galaxy_info:
         - all
 
   galaxy_tags:
-    - development
+    - hadoop
+    - hdfs
+    - yarn
 
 dependencies:
   - role: andrewrothstein.unarchive-deps
