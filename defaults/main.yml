@@ -1,5 +1,4 @@
 ---
 hadoop_version : '2.7.3'
 hadoop_mirror : http://mirror.cc.columbia.edu/pub/software/apache/hadoop/common
-hadoop_home_root : /opt
-hadoop_home : '{{hadoop_home_root}}/hadoop'
+hadoop_parent_dir : /usr/local

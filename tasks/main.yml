@@ -13,16 +13,16 @@
   unarchive: >
     copy=no
     src=/tmp/{{hadoop_archive}}
-    dest={{hadoop_home_root}}
-    creates={{hadoop_home_root}}/{{hadoop_name}}
+    dest={{hadoop_parent_dir}}
+    creates={{hadoop_dir}}
 
 - name: link hadoop...
   become: yes
   become_user: root
   file: >
     state=link
-    src={{hadoop_home_root}}/{{hadoop_name}}
-    dest={{hadoop_home}}
+    src={{hadoop_dir}}
+    dest={{hadoop_parent_dir}}/hadoop
 
 - name: include hadoop in the default path...
   become: yes
