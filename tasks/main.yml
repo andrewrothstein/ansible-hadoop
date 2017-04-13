@@ -2,34 +2,36 @@
 - name: download apache hadoop...
   become: yes
   become_user: root
-  get_url: >
-    url={{hadoop_url}}
-    dest=/tmp/{{hadoop_archive}}
-    mode=0644
+  get_url:
+    url: '{{hadoop_url}}'
+    dest: /tmp/{{hadoop_archive}}
+    mode: 0644
 
 - name: unarchive apache hadoop...
   become: yes
   become_user: root
-  unarchive: >
-    copy=no
-    src=/tmp/{{hadoop_archive}}
-    dest={{hadoop_parent_dir}}
-    creates={{hadoop_dir}}
+  unarchive:
+    copy: no
+    src: /tmp/{{hadoop_archive}}
+    dest: '{{hadoop_parent_dir}}'
+    creates: '{{hadoop_dir}}'
 
 - name: link hadoop...
   become: yes
   become_user: root
-  file: >
-    state=link
-    src={{hadoop_dir}}
-    dest={{hadoop_parent_dir}}/hadoop
+  file:
+    state: link
+    src: '{{hadoop_dir}}'
+    dest: '{{hadoop_parent_dir}}/hadoop'
 
 - name: include hadoop in the default path...
   become: yes
   become_user: root
   with_items:
-    - etc/profile.d/hadoop.sh
-  template: >
-    src={{item}}.j2
-    dest=/{{item}}
-    mode=0644
+    - f: hadoop.sh
+      d: /etc/profile.d
+      m: '0644'
+  template:
+    src: '{{item.f}}.j2'
+    dest: '{{item.d}}/{{item.f}}'
+    mode: '{{item.m}}'

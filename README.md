@@ -1,3 +1,4 @@
+[![CircleCI](https://circleci.com/gh/andrewrothstein/ansible-hadoop.svg?style=svg)](https://circleci.com/gh/andrewrothstein/ansible-hadoop)
 andrewrothstein.hadoop
 =========
 
