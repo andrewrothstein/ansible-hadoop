@@ -5,6 +5,7 @@
   get_url:
     url: '{{hadoop_url}}'
     dest: /tmp/{{hadoop_archive}}
+    checksum: '{{hadoop_checksum}}'
     mode: 0644
 
 - name: unarchive apache hadoop...
