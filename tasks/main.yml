@@ -42,5 +42,5 @@
   become_user: root
   when: hadoop_cleanup
   file:
-    path: /tmp/{{hadoop_tgz}}
+    path: /tmp/{{hadoop_archive}}
     state: absent
