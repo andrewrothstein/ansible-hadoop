@@ -1,6 +1,6 @@
-[![CircleCI](https://circleci.com/gh/andrewrothstein/ansible-hadoop.svg?style=svg)](https://circleci.com/gh/andrewrothstein/ansible-hadoop)
 andrewrothstein.hadoop
 =========
+[![Build Status](https://travis-ci.org/andrewrothstein/ansible-hadoop.svg?branch=master)](https://travis-ci.org/andrewrothstein/ansible-hadoop)
 
 Installs [Apache Hadoop](https://hadoop.apache.org)
 

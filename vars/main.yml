@@ -2,6 +2,6 @@
 hadoop_name : 'hadoop-{{ hadoop_version }}'
 hadoop_archive : '{{ hadoop_name }}.tar.gz'
 
-# http://apache.claz.org/hadoop/common/hadoop-2.7.3/hadoop-2.7.3.tar.gz
+# http://apache.claz.org/hadoop/common/hadoop-2.8.0/hadoop-2.8.0.tar.gz
 hadoop_url : '{{hadoop_mirror}}/{{ hadoop_name }}/{{ hadoop_archive }}'
 hadoop_dir : '{{hadoop_parent_dir}}/{{hadoop_name}}'

@@ -36,3 +36,11 @@
     src: '{{item.f}}.j2'
     dest: '{{item.d}}/{{item.f}}'
     mode: '{{item.m}}'
+
+- name: cleanup...
+  become: yes
+  become_user: root
+  when: hadoop_cleanup
+  file:
+    path: /tmp/{{hadoop_tgz}}
+    state: absent
