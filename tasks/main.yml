@@ -12,7 +12,7 @@
   become: yes
   become_user: root
   unarchive:
-    remote_src: no
+    remote_src: yes
     src: /tmp/{{hadoop_archive}}
     dest: '{{hadoop_parent_dir}}'
     creates: '{{hadoop_dir}}'
