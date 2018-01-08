@@ -1,21 +1,35 @@
 ---
-- name: download apache hadoop...
+- name: check for hadoop installation
   become: yes
-  become_user: root
-  get_url:
-    url: '{{hadoop_url}}'
-    dest: /tmp/{{hadoop_archive}}
-    checksum: '{{hadoop_checksum}}'
-    mode: 0644
-
-- name: unarchive apache hadoop...
-  become: yes
-  become_user: root
-  unarchive:
-    remote_src: yes
-    src: /tmp/{{hadoop_archive}}
-    dest: '{{hadoop_parent_dir}}'
-    creates: '{{hadoop_dir}}'
+  stat:
+    path: '{{hadoop_dir}}'
+  changed_when: false
+  register: hadoop_binary
+- when: not hadoop_binary.stat.exists
+  block:
+    - name: download apache hadoop...
+      become: yes
+      become_user: root
+      get_url:
+        url: '{{hadoop_url}}'
+        dest: /tmp/{{hadoop_archive}}
+        checksum: '{{hadoop_checksum}}'
+        mode: 0644
+    - name: unarchive apache hadoop...
+      become: yes
+      become_user: root
+      unarchive:
+        remote_src: yes
+        src: /tmp/{{hadoop_archive}}
+        dest: '{{hadoop_parent_dir}}'
+        creates: '{{hadoop_dir}}'
+  always:
+    - name: cleanup...
+      become: yes
+      become_user: root
+      file:
+        path: /tmp/{{hadoop_archive}}
+        state: absent
 
 - name: link hadoop...
   become: yes
@@ -31,16 +45,8 @@
   with_items:
     - f: hadoop.sh
       d: /etc/profile.d
-      m: '0644'
   template:
     src: '{{item.f}}.j2'
     dest: '{{item.d}}/{{item.f}}'
-    mode: '{{item.m}}'
+    mode: '{{item.m|default("0644")}}'
 
-- name: cleanup...
-  become: yes
-  become_user: root
-  when: hadoop_cleanup
-  file:
-    path: /tmp/{{hadoop_archive}}
-    state: absent

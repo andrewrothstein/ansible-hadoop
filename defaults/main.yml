@@ -1,9 +1,9 @@
 ---
-hadoop_version : '2.9.0'
+hadoop_version : '3.0.0'
 hadoop_checksums:
   '2.7.4': sha256:8f791bfcfa5bb7c7ccd09910d490c02910dda93b19936ec2aedb8930bc5be111
   '2.8.2': sha256:aea99c7ce8441749d81202bdea431f1024f17ee6e0efb3144226883207cc6292
   '2.9.0': sha256:8d48666f29f9ade6ed2762b7a9edab177bad2c57396f43d0ffd6a269d54f6fe1
+  '3.0.0': sha256:726e28fa7aea71e4587ce91ed3d96c56b15777fc859c09a7438a6d0092e08c74
 hadoop_mirror : http://apache.claz.org/hadoop/common
 hadoop_parent_dir : /usr/local
-hadoop_cleanup: False
