@@ -1,5 +1,5 @@
 ---
-hadoop_version: '3.1.0'
+hadoop_version: '3.1.1'
 hadoop_checksums:
   '2.7.4': sha256:8f791bfcfa5bb7c7ccd09910d490c02910dda93b19936ec2aedb8930bc5be111
   # https://dist.apache.org/repos/dist/release/hadoop/common/hadoop-2.7.6/hadoop-2.7.6.tar.gz.mds
@@ -7,6 +7,8 @@ hadoop_checksums:
   '2.8.2': sha256:aea99c7ce8441749d81202bdea431f1024f17ee6e0efb3144226883207cc6292
   # https://dist.apache.org/repos/dist/release/hadoop/common/hadoop-2.8.4/hadoop-2.8.4.tar.gz.mds
   '2.8.4': sha256:6B545972 FDD73173 887CDBC3 E1CBD3CC 72068271 924EDEA8 2A0E7E65 3199B115
+  # https://dist.apache.org/repos/dist/release/hadoop/common/hadoop-2.8.5/hadoop-2.8.5.tar.gz.mds
+  '2.8.5': sha256:F9C726DF 693CE2DA A4107886 F603270D 66E7257F 77A92C98 86502D6C D4A884A4
   # https://dist.apache.org/repos/dist/release/hadoop/common/hadoop-2.9.0/hadoop-2.9.0.tar.gz.mds
   '2.9.0': sha256:8D48666F 29F9ADE6 ED2762B7 A9EDAB17 7BAD2C57 396F43D0 FFD6A269 D54F6FE1
   # https://dist.apache.org/repos/dist/release/hadoop/common/hadoop-2.9.1/hadoop-2.9.1.tar.gz.mds
@@ -19,5 +21,7 @@ hadoop_checksums:
   '3.0.3': sha256:DB96E2C0 D0D5352D 8984892D FAC4E27C 0E682D98 A497B7E0 4EE97C3E 2019277A
   # https://dist.apache.org/repos/dist/release/hadoop/common/hadoop-3.1.0/hadoop-3.1.0.tar.gz.mds
   '3.1.0': sha256:670D2CED 595FA42D 9FA1A93C 4E39B39F 47002CAD 1553D9DF 163EE828 CA5143E7
+  # https://dist.apache.org/repos/dist/release/hadoop/common/hadoop-3.1.1/hadoop-3.1.1.tar.gz.mds
+  '3.1.1': sha256:F837FE26 0587F716 29AAD1F4 FB671927 4E948111 DC96FFC5 A8E26F27 DEAC5602
 hadoop_mirror: http://apache.claz.org/hadoop/common
 hadoop_parent_dir: /usr/local
