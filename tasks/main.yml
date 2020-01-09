@@ -2,7 +2,7 @@
 - name: check for hadoop installation
   become: yes
   stat:
-    path: '{{hadoop_dir}}'
+    path: '{{ hadoop_dir }}'
   changed_when: false
   register: hadoop_binary
 - when: not hadoop_binary.stat.exists
@@ -11,24 +11,24 @@
       become: yes
       become_user: root
       get_url:
-        url: '{{hadoop_url}}'
-        dest: /tmp/{{hadoop_archive}}
-        checksum: '{{hadoop_checksum}}'
+        url: '{{ hadoop_url }}'
+        dest: /tmp/{{ hadoop_archive }}
+        checksum: '{{ hadoop_checksum }}'
         mode: 0644
     - name: unarchive apache hadoop...
       become: yes
       become_user: root
       unarchive:
         remote_src: yes
-        src: /tmp/{{hadoop_archive}}
-        dest: '{{hadoop_parent_dir}}'
-        creates: '{{hadoop_dir}}'
+        src: /tmp/{{ hadoop_archive }}
+        dest: '{{ hadoop_parent_dir }}'
+        creates: '{{ hadoop_dir }}'
   always:
     - name: cleanup...
       become: yes
       become_user: root
       file:
-        path: /tmp/{{hadoop_archive}}
+        path: /tmp/{{ hadoop_archive }}
         state: absent
 
 - name: link hadoop...
@@ -36,8 +36,8 @@
   become_user: root
   file:
     state: link
-    src: '{{hadoop_dir}}'
-    dest: '{{hadoop_parent_dir}}/hadoop'
+    src: '{{ hadoop_dir }}'
+    dest: '{{ hadoop_parent_dir }}/hadoop'
 
 - name: include hadoop in the default path...
   become: yes
@@ -46,6 +46,6 @@
     - f: hadoop.sh
       d: /etc/profile.d
   template:
-    src: '{{item.f}}.j2'
-    dest: '{{item.d}}/{{item.f}}'
-    mode: '{{item.m|default("0644")}}'
+    src: '{{ item.f }}.j2'
+    dest: '{{ item.d }}/{{ item.f }}'
+    mode: '{{ <item.m|default("0644") }}'
