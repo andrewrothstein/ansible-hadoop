@@ -1,5 +1,5 @@
 ---
-hadoop_version: '3.2.1'
+hadoop_version: 3.3.0
 hadoop_mirror: http://mirror.reverse.net/pub/apache/hadoop/common
 hadoop_parent_dir: /usr/local
 hadoop_checksums:
@@ -27,3 +27,5 @@ hadoop_checksums:
   '3.1.1': sha256:F837FE26 0587F716 29AAD1F4 FB671927 4E948111 DC96FFC5 A8E26F27 DEAC5602
   # https://www.apache.org/dist/hadoop/common/hadoop-3.2.1/hadoop-3.2.1.tar.gz.sha512
   '3.2.1': sha512:d62709c3d7144fcaafc60e18d0fa03d7d477cc813e45526f3646030cd87dbf010aeccf3f4ce795b57b08d2884b3a55f91fe9d74ac144992d2dfe444a4bbf34ee
+  # https://www.apache.org/dist/hadoop/common/hadoop-3.3.0/hadoop-3.3.0.tar.gz.sha512
+  '3.3.0': sha512:9ac5a5a8d29de4d2edfb5e554c178b04863375c5644d6fea1f6464ab4a7e22a50a6c43253ea348edbd114fc534dcde5bdd2826007e24b2a6b0ce0d704c5b4f5b
