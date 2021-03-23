@@ -1,9 +1,11 @@
 ---
-hadoop_name: 'hadoop-{{ hadoop_version }}'
+hadoop_name: hadoop-{{ hadoop_version }}
 hadoop_archive: '{{ hadoop_name }}.tar.gz'
+hadoop_tmp_archive: /tmp/{{ hadoop_archive }}
 
 # http://apache.claz.org/hadoop/common/hadoop-2.8.0/hadoop-2.8.0.tar.gz
 hadoop_url: '{{ hadoop_mirror }}/{{ hadoop_name }}/{{ hadoop_archive }}'
 hadoop_dir: '{{ hadoop_parent_dir }}/{{ hadoop_name }}'
+hadoop_link_dir: '{{ hadoop_parent_dir }}/hadoop'
 
 hadoop_checksum: '{{ hadoop_checksums[hadoop_version] }}'
