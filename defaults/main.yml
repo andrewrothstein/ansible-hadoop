@@ -1,5 +1,5 @@
 ---
-hadoop_version: 3.3.0
+hadoop_version: 3.3.4
 hadoop_mirror: http://mirror.reverse.net/pub/apache/hadoop/common
 hadoop_parent_dir: /usr/local
 hadoop_checksums:
@@ -29,3 +29,11 @@ hadoop_checksums:
   '3.2.1': sha512:d62709c3d7144fcaafc60e18d0fa03d7d477cc813e45526f3646030cd87dbf010aeccf3f4ce795b57b08d2884b3a55f91fe9d74ac144992d2dfe444a4bbf34ee
   # https://www.apache.org/dist/hadoop/common/hadoop-3.3.0/hadoop-3.3.0.tar.gz.sha512
   '3.3.0': sha512:9ac5a5a8d29de4d2edfb5e554c178b04863375c5644d6fea1f6464ab4a7e22a50a6c43253ea348edbd114fc534dcde5bdd2826007e24b2a6b0ce0d704c5b4f5b
+  # https://www.apache.org/dist/hadoop/common/hadoop-3.3.1/hadoop-3.3.1.tar.gz.sha512
+  '3.3.1': sha512:2fd0bf74852c797dc864f373ec82ffaa1e98706b309b30d1effa91ac399b477e1accc1ee74d4ccbb1db7da1c5c541b72e4a834f131a99f2814b030fbd043df66
+  # https://www.apache.org/dist/hadoop/common/hadoop-3.3.2/hadoop-3.3.2.tar.gz.sha512
+  '3.3.2': sha512:e8dcc18b1413664f7d6a12803eccdeb60fd786f3f91dda40410dc069d4dd911daf0f7d024b4351288b788d6a7aa4124607dbf94ac2f8d2fba5c826c8bea7c13d
+  # https://www.apache.org/dist/hadoop/common/hadoop-3.3.3/hadoop-3.3.3.tar.gz.sha512
+  '3.3.3': sha512:1f5762682cef3daff8b2379fe7e40efca107bb7e8dcaa4a513e3bc0c082067759dd05d493ec997433dde2c89ea63dbc93aee0bba60045f89d3ec2d3f687f58b3
+  # https://www.apache.org/dist/hadoop/common/hadoop-3.3.4/hadoop-3.3.4.tar.gz.sha512
+  '3.3.4': sha512:ca5e12625679ca95b8fd7bb7babc2a8dcb2605979b901df9ad137178718821097b67555115fafc6dbf6bb32b61864ccb6786dbc555e589694a22bf69147780b4

@@ -1,6 +1,6 @@
 andrewrothstein.hadoop
 =========
-[![Build Status](https://travis-ci.org/andrewrothstein/ansible-hadoop.svg?branch=master)](https://travis-ci.org/andrewrothstein/ansible-hadoop)
+![Build Status](https://github.com/andrewrothstein/ansible-hadoop/actions/workflows/build.yml/badge.svg)
 
 Installs [Apache Hadoop](https://hadoop.apache.org)
 

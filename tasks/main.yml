@@ -1,6 +1,12 @@
 ---
+- include_role:
+    name: andrewrothstein.unarchive-deps
+- include_role:
+    name: andrewrothstein.temurin
+  vars:
+    openjdk_app: jre
 - name: checking for install in {{ hadoop_dir }}...
-  become: yes
+  become: true
   stat:
     path: '{{ hadoop_dir }}'
   changed_when: false
@@ -8,7 +14,7 @@
 - when: not hadoop_binary.stat.exists
   block:
     - name: downloading {{ hadoop_url }}...
-      become: yes
+      become: true
       become_user: root
       get_url:
         url: '{{ hadoop_url }}'
@@ -16,22 +22,22 @@
         checksum: '{{ hadoop_checksum }}'
         mode: 0644
     - name: unarchiving {{ hadoop_tmp_archive }} to {{ hadoop_parent_dir }}
-      become: yes
+      become: true
       become_user: root
       unarchive:
-        remote_src: yes
+        remote_src: true
         src: '{{ hadoop_tmp_archive }}'
         dest: '{{ hadoop_parent_dir }}'
         creates: '{{ hadoop_dir }}'
   always:
     - name: rm {{ hadoop_tmp_archive }}
-      become: yes
+      become: true
       become_user: root
       file:
         path: '{{ hadoop_tmp_archive }}'
         state: absent
 - name: linking {{ hadoop_link_dir }} to {{ hadoop_dir }}...
-  become: yes
+  become: true
   become_user: root
   file:
     state: link
@@ -39,7 +45,7 @@
     dest: '{{ hadoop_link_dir }}'
 
 - name: include hadoop in the default path...
-  become: yes
+  become: true
   become_user: root
   with_items:
     - f: hadoop.sh
