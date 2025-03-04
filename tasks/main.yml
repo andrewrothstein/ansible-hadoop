@@ -1,56 +1,59 @@
 ---
-- include_role:
-    name: andrewrothstein.unarchive-deps
-- include_role:
+- name: Installing andrewrothstein.unarchivedeps
+  ansible.builtin.include_role:
+    name: andrewrothstein.unarchivedeps
+- name: Installing andrewrothstein.temurin
+  ansible.builtin.include_role:
     name: andrewrothstein.temurin
   vars:
-    openjdk_app: jre
-- name: checking for install in {{ hadoop_dir }}...
+    temurin_app: jre
+- name: Checking for install in {{ hadoop_dir }}...
   become: true
-  stat:
+  ansible.builtin.stat:
     path: '{{ hadoop_dir }}'
   changed_when: false
   register: hadoop_binary
-- when: not hadoop_binary.stat.exists
+- name: Downloading and installing hadoop
+  when: not hadoop_binary.stat.exists
   block:
-    - name: downloading {{ hadoop_url }}...
+    - name: Downloading {{ hadoop_url }}...
       become: true
       become_user: root
-      get_url:
+      ansible.builtin.get_url:
         url: '{{ hadoop_url }}'
         dest: '{{ hadoop_tmp_archive }}'
         checksum: '{{ hadoop_checksum }}'
-        mode: 0644
-    - name: unarchiving {{ hadoop_tmp_archive }} to {{ hadoop_parent_dir }}
+        mode: '644'
+    - name: Unarchiving {{ hadoop_tmp_archive }} to {{ hadoop_parent_dir }}
       become: true
       become_user: root
-      unarchive:
+      ansible.builtin.unarchive:
         remote_src: true
         src: '{{ hadoop_tmp_archive }}'
         dest: '{{ hadoop_parent_dir }}'
         creates: '{{ hadoop_dir }}'
   always:
-    - name: rm {{ hadoop_tmp_archive }}
+    - name: Rm -f {{ hadoop_tmp_archive }}
       become: true
       become_user: root
-      file:
+      ansible.builtin.file:
         path: '{{ hadoop_tmp_archive }}'
         state: absent
-- name: linking {{ hadoop_link_dir }} to {{ hadoop_dir }}...
+- name: Linking {{ hadoop_link_dir }} to {{ hadoop_dir }}...
   become: true
   become_user: root
-  file:
+  ansible.builtin.file:
     state: link
     src: '{{ hadoop_dir }}'
     dest: '{{ hadoop_link_dir }}'
 
-- name: include hadoop in the default path...
+- name: Including hadoop in the default path...
   become: true
   become_user: root
   with_items:
     - f: hadoop.sh
       d: /etc/profile.d
-  template:
+  ansible.builtin.template:
     src: '{{ item.f }}.j2'
     dest: '{{ item.d }}/{{ item.f }}'
-    mode: '{{ item.m | default("0644") }}'
+    mode: '{{ item.m | default("644") }}'
